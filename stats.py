@@ -15,8 +15,15 @@ def get_letter_count(file_contents):
     letter_dictionary = {}
     letters_list = list(file_contents.lower())
     for letter in letters_list:
-        if letter not in letter_dictionary:
-            letter_dictionary[letter] = 1
-        else:
-            letter_dictionary[letter] += 1
+        if letter.isalpha() == True:
+            if letter not in letter_dictionary:
+                letter_dictionary[letter] = 1
+            else:
+                letter_dictionary[letter] += 1
     return letter_dictionary
+
+
+def sort_dictionary(letter_dictionary):
+    sorted_letters = sorted(letter_dictionary.items(), key=lambda x: x[1], reverse=True)
+    sorted_letters = dict(sorted_letters)
+    return sorted_letters
